@@ -1,5 +1,5 @@
 class FeelingsController < ApplicationController
-  before_all :find_feeling, except: [:index, :new]
+  before_action :find_feeling, except: [:index, :new]
 
   def index
     @feelings = Feeling.all

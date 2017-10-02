@@ -1,0 +1,11 @@
+<%= form_for @repo, html: {class: "ui form"} do |f| %>
+  <%= f.select :user_id, options_for_select(User.all.map{|u| [u.name, u.id]}) %>
+  <br><br>
+  <%= f.label :repo_name %>
+  <%= f.text_field :repo_name, html: {class: "field"}%>
+  <br><br>
+  <%= f.label :language %>
+  <%= f.text_field :language, html: {class: "field"} %>
+  <br><br>
+  <%= f.submit class: "ui button" %>
+<% end %>

@@ -6,9 +6,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
   </head>
 
   <body>
+    <div class="ui menu">
+      <% if signed_in %>
+        <%= link_to "My Profile", user_path(current_user), class: 'header item' %>
+        <%= link_to "Repos", repos_path, class: 'item' %>
+        <%= link_to "Feelings", feelings_path, class: 'item' %>
+      <% end %>
+      <div class="right menu">
+        <% if signed_in %>
+          <div class="item"><%= link_to "Logout", logout_path, class: 'ui button'%></div>
+        <% else %>
+        <div class="item"><%= link_to "Signup", signup_path, class: 'ui button'%></div>
+        <div class="item"><%= link_to "Sign in", signin_path, class: 'ui button'%></div>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

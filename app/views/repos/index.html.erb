@@ -1,2 +1,17 @@
-<h1>Repos#index</h1>
-<p>Find me in app/views/repos/index.html.erb</p>
+<div class='ui container'>
+  <%= button_to 'Create a new Repo', new_repo_path, method: 'get' %>
+  <h1>Repos</h1>
+  <div class='ui middle aligned animated selection list'>
+    <% Repo.all.map do |r| %>
+      <div class="item">
+        <div class="content">
+          Repo Name: <%= r.repo_name %>
+          <br>
+          Repo language: <%= r.language %>
+          <br>
+          Repo Owner: <%= r.user.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

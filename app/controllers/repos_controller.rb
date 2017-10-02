@@ -1,5 +1,5 @@
 class ReposController < ApplicationController
-  before_all :find_repo, except: [:index, :new]
+  before_action :find_repo, except: [:index, :new, :create]
 
   def index
     @repo = Repo.all
@@ -7,6 +7,17 @@ class ReposController < ApplicationController
 
   def new
     @repo = Repo.new
+  end
+
+  def create
+    repo = Repo.new(repo_params)
+    if repo.save
+      flash[:success] = "You successfully created a new repository!"
+      redirect_to repo_path(repo)
+    else
+      flash[:error] = "Oops! Looks like there was an error creating this repo :("
+      render :new
+    end
   end
 
   def edit

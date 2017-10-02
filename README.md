@@ -17,7 +17,6 @@
 
 ## Deliverables
 
-- Have an index page listing information about all of your repositories
 - Make a new Rails Project
 - Create a domain for:
   - Users
@@ -27,6 +26,7 @@
   - An index page of all your GitHub repositories. The summary of languages used should also appear in this view.
   - A show page for repos with detailed information about the repository. Additionally, and on the same page, 'feelings' regarding the repo can be both created AND viewed on this page
 - Your application should employ rails authentication for a user
+
 ## Helpful Links
 
 - https://developer.github.com/v3/guides/basics-of-authentication/ (You will want to authenticate your application to avoid a "too many requests" issue when fetching data)
